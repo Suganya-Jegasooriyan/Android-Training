@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CarParking</string>
+    <string name="homepage_search_ic">HomePage_Search_ic</string>
+    <string name="car_no">Car No:</string>
+    <string name="mobilenumber">Mobile Number</string>
+    <string name="submit">Submit</string>
+</resources>
