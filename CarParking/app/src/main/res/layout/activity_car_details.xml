@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarDetails">
+    tools:context=".CarDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/carDetail_TitleBar"
@@ -38,11 +38,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/carDetail_TitleBar"
         app:errorEnabled="true"
-        app:errorTextColor="@color/red"
         app:endIconMode="clear_text"
-        app:counterEnabled="true"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        android:layout_marginTop="10dp"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -60,6 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilCarNumber"
         app:prefixText="+91"
         app:endIconMode="clear_text"
+        app:counterMaxLength="10"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         >
@@ -73,13 +73,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/Submit_Button"
+        android:id="@+id/Check_In_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:text="@string/checkIn"
         app:layout_constraintTop_toBottomOf="@+id/tilMobileNumber"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,27 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".HomePageActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/homePage_TitleBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:title="Car Parking"
-        app:titleTextColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    <ImageView
-        android:id="@+id/search_icon"
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_search"
-        android:layout_gravity="end"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/homepage_search_ic" />
-
-    </androidx.appcompat.widget.Toolbar>
+        android:id="@+id/topGuideline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/margin_top_bottom"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
@@ -41,6 +29,25 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/margin_left_right"
         />
+
+    <!-- SearchView -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        android:background="@drawable/search_bar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ic_check_in"
