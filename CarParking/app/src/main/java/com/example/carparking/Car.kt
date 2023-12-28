@@ -1,3 +1,31 @@
 package com.example.carparking
 
-data class Car(val carNumber: String, val mobileNumber : String)
+import android.os.Parcel
+import android.os.Parcelable
+
+data class Car(val carNumber: String?, val mobileNumber: String?) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString()
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(carNumber)
+        parcel.writeString(mobileNumber)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Car> {
+        override fun createFromParcel(parcel: Parcel): Car {
+            return Car(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Car?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

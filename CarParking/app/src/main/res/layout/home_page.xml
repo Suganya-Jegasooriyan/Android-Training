@@ -30,6 +30,18 @@
         app:layout_constraintGuide_end="@dimen/margin_left_right"
         />
 
+    <TextView
+        android:id="@+id/tilCarParking"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Car Parking"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        />
+
     <!-- SearchView -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
@@ -37,14 +49,15 @@
         android:layout_height="wrap_content"
         app:iconifiedByDefault="false"
         app:queryHint="Search"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tilCarParking"
         android:background="@drawable/search_bar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="@id/startGuideline"/>

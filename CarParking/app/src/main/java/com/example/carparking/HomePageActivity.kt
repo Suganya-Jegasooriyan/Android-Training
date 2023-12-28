@@ -22,12 +22,24 @@ class HomePageActivity : AppCompatActivity() {
             val intent = Intent(this, CarDetailsActivity::class.java)
             resultLauncher.launch(intent)
         }
+
+
+        val rvInterfaceInstance: CarParkingInterface = object : CarParkingInterface {
+            override fun onClick(view: Car) {
+                val checkOutFragment = CheckOutDialogFragment()
+                val bundle = Bundle()
+                bundle.putParcelable("carDetails",view)
+                checkOutFragment.arguments = bundle
+                checkOutFragment.show(supportFragmentManager, "test")
+            }
+        }
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-        carParkingAdapter = CarParkingAdapter()
+        carParkingAdapter = CarParkingAdapter(rvInterfaceInstance)
         recyclerView.adapter = carParkingAdapter
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
+
     }
 
     val resultLauncher = registerForActivityResult(
@@ -42,3 +54,4 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 }
+
