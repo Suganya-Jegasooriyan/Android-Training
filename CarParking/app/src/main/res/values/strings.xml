@@ -6,4 +6,5 @@
     <string name="checkIn">Check In</string>
     <string name="slotNumber">slot No.</string>
     <string name="checkOut">Check Out</string>
+    <string name="ok">OK</string>
 </resources>

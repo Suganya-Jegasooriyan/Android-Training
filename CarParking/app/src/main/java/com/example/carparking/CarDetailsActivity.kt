@@ -40,8 +40,8 @@ class CarDetailsActivity : AppCompatActivity() {
             isAllFieldsChecked = CheckAllFields(carNumber,mobileNumber)
             val intent = Intent()
             if(isAllFieldsChecked) {
-                intent.putExtra("car_no", carNumber)
-                intent.putExtra("mobile_no", mobileNumber)
+                intent.putExtra(Constants.carNumber, carNumber)
+                intent.putExtra(Constants.mobileNumber, mobileNumber)
                 setResult(RESULT_OK, intent)
                 finish()
             }
@@ -51,11 +51,11 @@ class CarDetailsActivity : AppCompatActivity() {
     private fun CheckAllFields(carNumber : String, mobileNumber : String) : Boolean {
 
         if(carNumber.isEmpty()) {
-            tilCarNumber.error = "car number required"
+            tilCarNumber.error = Constants.carNumberRequired
             return false
         }
         if(mobileNumber.isEmpty()) {
-            tilMobileNumber.error = "mobile number required"
+            tilMobileNumber.error = Constants.mobileNumberRequired
             return false
         }
         return true

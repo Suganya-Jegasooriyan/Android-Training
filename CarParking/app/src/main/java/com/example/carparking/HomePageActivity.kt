@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomePageActivity : AppCompatActivity() {
+    private val carDetailList = mutableListOf<Car>()
     private lateinit var carParkingAdapter: CarParkingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +26,14 @@ class HomePageActivity : AppCompatActivity() {
 
 
         val rvInterfaceInstance: CarParkingInterface = object : CarParkingInterface {
-            override fun onClick(view: Car) {
+            override fun onClick(car: Car) {
                 val checkOutFragment = CheckOutDialogFragment()
                 val bundle = Bundle()
-                bundle.putParcelable("carDetails",view)
+                bundle.putParcelable(Constants.carDetails,car)
                 checkOutFragment.arguments = bundle
-                checkOutFragment.show(supportFragmentManager, "test")
+                checkOutFragment.show(supportFragmentManager, Constants.test)
+
+                carParkingAdapter.removeCar(car)
             }
         }
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
@@ -47,9 +50,9 @@ class HomePageActivity : AppCompatActivity() {
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             val data : Intent? = result.data
-            val carNumber = data?.getStringExtra("car_no")?:""
-            val mobileNUmber  = data?.getStringExtra("mobile_no")?:""
-            val carDetails = Car(carNumber,mobileNUmber)
+            val carNumber = data?.getStringExtra(Constants.carNumber)?:""
+            val mobileNumber  = data?.getStringExtra(Constants.mobileNumber)?:""
+            val carDetails = Car(carNumber,mobileNumber, slotNumber = "")
             carParkingAdapter.addCarDetails(carDetails)
         }
     }
