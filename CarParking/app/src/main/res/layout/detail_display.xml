@@ -25,7 +25,7 @@
             android:id="@+id/show_mobile_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mobilenumber"
+            android:text="@string/mobile_number"
             app:layout_constraintTop_toBottomOf="@+id/show_car_number"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -33,7 +33,7 @@
             android:id="@+id/show_check_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkIn"
+            android:text="@string/check_In"
             app:layout_constraintTop_toBottomOf="@+id/show_mobile_number"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -42,7 +42,7 @@
             android:id="@+id/show_slot_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/slotNumber"
+            android:text="@string/slot_Number"
             app:layout_constraintTop_toBottomOf="@+id/show_check_in"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -51,7 +51,7 @@
             android:id="@+id/check_out_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkOut"
+            android:text="@string/check_Out"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

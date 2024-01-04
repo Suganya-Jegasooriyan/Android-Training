@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomePageActivity : AppCompatActivity() {
-    private val carDetailList = mutableListOf<Car>()
     private lateinit var carParkingAdapter: CarParkingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,6 @@ class HomePageActivity : AppCompatActivity() {
             resultLauncher.launch(intent)
         }
 
-
         val rvInterfaceInstance: CarParkingInterface = object : CarParkingInterface {
             override fun onClick(car: Car) {
                 val checkOutFragment = CheckOutDialogFragment()
@@ -32,7 +30,6 @@ class HomePageActivity : AppCompatActivity() {
                 bundle.putParcelable(Constants.carDetails,car)
                 checkOutFragment.arguments = bundle
                 checkOutFragment.show(supportFragmentManager, Constants.test)
-
                 carParkingAdapter.removeCar(car)
             }
         }
@@ -52,7 +49,7 @@ class HomePageActivity : AppCompatActivity() {
             val data : Intent? = result.data
             val carNumber = data?.getStringExtra(Constants.carNumber)?:""
             val mobileNumber  = data?.getStringExtra(Constants.mobileNumber)?:""
-            val carDetails = Car(carNumber,mobileNumber, slotNumber = "")
+            val carDetails = Car(carNumber,mobileNumber, slotNumber = 0)
             carParkingAdapter.addCarDetails(carDetails)
         }
     }

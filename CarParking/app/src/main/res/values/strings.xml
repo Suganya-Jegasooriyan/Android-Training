@@ -2,9 +2,11 @@
     <string name="app_name">CarParking</string>
     <string name="homepage_search_ic">HomePage_Search_ic</string>
     <string name="car_no">Car No:</string>
-    <string name="mobilenumber">Mobile Number</string>
-    <string name="checkIn">Check In</string>
-    <string name="slotNumber">slot No.</string>
-    <string name="checkOut">Check Out</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="check_In">Check In</string>
+    <string name="slot_Number">slot No.</string>
+    <string name="check_Out">Check Out</string>
+    <string name="check_Out_Amount">Amount</string>
+    <string name="title_car_details">Car Details</string>
     <string name="ok">OK</string>
 </resources>

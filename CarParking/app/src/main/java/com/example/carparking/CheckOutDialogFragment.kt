@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 
-
 class CheckOutDialogFragment : DialogFragment() {
     private lateinit var tvCarNumber : TextView
     private lateinit var tvMobileNumber : TextView
@@ -32,15 +31,12 @@ class CheckOutDialogFragment : DialogFragment() {
         btnOK = view.findViewById(R.id.check_out_ok_button) as Button
         btnOK.setOnClickListener {
                 dismiss()
-//             fun onClick(view: Car) {
-//                dismiss()
-//            }
         }
         val bundle = arguments?.getParcelable<Car>(Constants.carDetails)
         if (bundle != null) {
             tvCarNumber.text = bundle.carNumber
             tvMobileNumber.text = bundle.mobileNumber
-            tvSlotNumber.text = bundle.slotNumber
+            tvSlotNumber.text = bundle.slotNumber.toString()
         }
         return view
     }

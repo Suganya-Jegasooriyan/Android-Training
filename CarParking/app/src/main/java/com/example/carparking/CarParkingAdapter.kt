@@ -7,14 +7,32 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CarParkingAdapter(val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>(){
+class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>(){
 
     private val carDetailList = mutableListOf<Car>()
 
     fun addCarDetails(carDetails: Car) {
-        carDetails.slotNumber = "1"
+        val nax = getNextAvailableSlot()
+        if(nax == -1) {
+            carDetails.slotNumber = carDetailList.size + 1
+        }
+        else {
+            carDetails.slotNumber = nax
+        }
         carDetailList.add(carDetails)
         notifyDataSetChanged()
+    }
+
+    private fun getNextAvailableSlot(): Int {
+        for(i in 0..carDetailList.size) {
+            val obj = carDetailList[i]
+            val position = i + 1
+           return if(position != obj.slotNumber){
+                return position
+            }
+            else -1
+        }
+        return -1
     }
 
     fun removeCar(car: Car) {
@@ -44,7 +62,7 @@ class CarParkingAdapter(val carParkingInterface: CarParkingInterface) : Recycler
         val carDetails: Car = carDetailList[position]
         holder.tvCarNumber.text = carDetails.carNumber
         holder.tvMobileNumber.text = carDetails.mobileNumber
-        holder.tvSlotNumber.text = carDetails.slotNumber
+        holder.tvSlotNumber.text = carDetails.slotNumber.toString()
         holder.btnCheckOut.setOnClickListener {
             carParkingInterface.onClick(carDetails)
         }

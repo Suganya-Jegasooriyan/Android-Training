@@ -12,11 +12,12 @@
         android:text="@string/car_no"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
         android:id="@+id/check_out_mobile_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mobilenumber"
+        android:text="@string/mobile_number"
         app:layout_constraintTop_toBottomOf="@+id/check_out_car_number"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -24,7 +25,7 @@
         android:id="@+id/in_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/checkIn"
+        android:text="@string/check_In"
         app:layout_constraintTop_toBottomOf="@+id/check_out_mobile_number"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -33,18 +34,20 @@
         android:id="@+id/check_out_slot_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/slotNumber"
+        android:text="@string/slot_Number"
         app:layout_constraintTop_toBottomOf="@+id/in_time"
         app:layout_constraintStart_toStartOf="parent"
         />
+
     <TextView
         android:id="@+id/check_out_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/slotNumber"
+        android:text="@string/check_Out_Amount"
         app:layout_constraintTop_toBottomOf="@+id/check_out_slot_number"
         app:layout_constraintStart_toStartOf="parent"
         />
+
     <Button
         android:id="@+id/check_out_ok_button"
         android:layout_width="wrap_content"

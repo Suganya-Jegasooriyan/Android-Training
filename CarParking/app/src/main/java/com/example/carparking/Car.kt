@@ -3,11 +3,11 @@ package com.example.carparking
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Car(val carNumber: String?, val mobileNumber: String?, var slotNumber: String?) : Parcelable {
+data class Car(val carNumber: String?, val mobileNumber: String?, var slotNumber: Int?) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
+        parcel.readInt()
     ) {
     }
 
