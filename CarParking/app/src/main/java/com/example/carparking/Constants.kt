@@ -7,4 +7,6 @@ object Constants {
     const val carNumberRequired = "car number required"
     const val mobileNumberRequired = "mobile number required"
     const val test = "test"
+    const val dateFormat = "yyyy-MM-dd hh:mm:ss a"
+    const val dateInHourFormat = "hh"
 }

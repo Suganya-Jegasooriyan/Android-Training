@@ -5,21 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/check_out_car_number"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/check_out_TitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/car_no"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="?attr/colorPrimary"
+        app:title="@string/title_check_out"
+        app:titleTextColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startGuideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/check_out_guideline"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endGuideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/check_out_guideline"
+        />
+
+    <TextView
+        android:id="@+id/tv_car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="@string/check_out_car_no"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/check_out_TitleBar"
+            />
+
+
+    <TextView
+        android:id="@+id/check_out_car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car_no"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/check_out_TitleBar"/>
+
+    <TextView
+        android:id="@+id/tv_mobile_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_out_mobile_number"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car_number"
+        />
 
     <TextView
         android:id="@+id/check_out_mobile_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mobile_number"
-        app:layout_constraintTop_toBottomOf="@+id/check_out_car_number"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/check_out_car_number"/>
+
+    <TextView
+        android:id="@+id/tv_in_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_in"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mobile_number"
+        />
 
     <TextView
         android:id="@+id/in_time"
@@ -27,7 +85,17 @@
         android:layout_height="wrap_content"
         android:text="@string/check_In"
         app:layout_constraintTop_toBottomOf="@+id/check_out_mobile_number"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        />
+
+    <TextView
+        android:id="@+id/tv_slot_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/slot_number"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/in_time"
         />
 
     <TextView
@@ -36,7 +104,17 @@
         android:layout_height="wrap_content"
         android:text="@string/slot_Number"
         app:layout_constraintTop_toBottomOf="@+id/in_time"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        />
+
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amount"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_slot_number"
         />
 
     <TextView
@@ -45,7 +123,7 @@
         android:layout_height="wrap_content"
         android:text="@string/check_Out_Amount"
         app:layout_constraintTop_toBottomOf="@+id/check_out_slot_number"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
         />
 
     <Button
@@ -53,7 +131,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/check_out_amount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

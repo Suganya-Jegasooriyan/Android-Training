@@ -3,4 +3,6 @@
     <dimen name = "margin_left_right">10dp</dimen>
     <dimen name = "margin_top_bottom">30dp</dimen>
     <dimen name = "ic_check_in_margin">30dp</dimen>
+    <dimen name = "check_out_guideline">10dp</dimen>
+    <dimen name = "car_details_guideline">32dp</dimen>
 </resources>

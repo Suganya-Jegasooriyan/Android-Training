@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/startGuideline"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="32dp"
+        app:layout_constraintGuide_begin="@dimen/car_details_guideline"
         />
 
     <androidx.constraintlayout.widget.Guideline
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/endGuideline"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="32dp"
+        app:layout_constraintGuide_end="@dimen/car_details_guideline"
         />
 
     <com.google.android.material.textfield.TextInputLayout

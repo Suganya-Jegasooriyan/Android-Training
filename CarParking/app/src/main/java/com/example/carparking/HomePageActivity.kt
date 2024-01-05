@@ -49,7 +49,8 @@ class HomePageActivity : AppCompatActivity() {
             val data : Intent? = result.data
             val carNumber = data?.getStringExtra(Constants.carNumber)?:""
             val mobileNumber  = data?.getStringExtra(Constants.mobileNumber)?:""
-            val carDetails = Car(carNumber,mobileNumber, slotNumber = 0)
+            val checkInDateTime = System.currentTimeMillis()
+            val carDetails = Car(carNumber,mobileNumber, slotNumber = 0, checkInDateTime)
             carParkingAdapter.addCarDetails(carDetails)
         }
     }

@@ -8,5 +8,11 @@
     <string name="check_Out">Check Out</string>
     <string name="check_Out_Amount">Amount</string>
     <string name="title_car_details">Car Details</string>
+    <string name="title_check_out">Check Out</string>
     <string name="ok">OK</string>
+    <string name="amount">Amount:</string>
+    <string name="slot_number">Slot Number:</string>
+    <string name="check_in">Check In:</string>
+    <string name="check_out_mobile_number">Mobile Number:</string>
+    <string name="check_out_car_no">Car No:</string>
 </resources>

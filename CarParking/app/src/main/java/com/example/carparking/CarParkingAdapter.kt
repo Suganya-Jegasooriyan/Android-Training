@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>(){
 
@@ -19,18 +22,16 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
         else {
             carDetails.slotNumber = nax
         }
-        carDetailList.add(carDetails)
+        val index = carDetails.slotNumber!! - 1
+        carDetailList.add(index, carDetails)
         notifyDataSetChanged()
     }
 
     private fun getNextAvailableSlot(): Int {
-        for(i in 0..carDetailList.size) {
-            val obj = carDetailList[i]
-            val position = i + 1
-           return if(position != obj.slotNumber){
-                return position
+        carDetailList.forEachIndexed { index, car ->
+            if (car.slotNumber != index + 1){
+                return index + 1
             }
-            else -1
         }
         return -1
     }
@@ -45,6 +46,7 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
         val tvCarNumber: TextView = view.findViewById(R.id.show_car_number)
         val tvMobileNumber: TextView = view.findViewById(R.id.show_mobile_number)
         val tvSlotNumber : TextView = view.findViewById(R.id.show_slot_number)
+        val tvCheckInDateTime : TextView = view.findViewById(R.id.show_check_in)
         val btnCheckOut: Button = view.findViewById(R.id.check_out_button)
     }
 
@@ -63,8 +65,14 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
         holder.tvCarNumber.text = carDetails.carNumber
         holder.tvMobileNumber.text = carDetails.mobileNumber
         holder.tvSlotNumber.text = carDetails.slotNumber.toString()
+        val date = changeSimpleDateFormat(carDetails.checkIn)
+        holder.tvCheckInDateTime.text = date
         holder.btnCheckOut.setOnClickListener {
             carParkingInterface.onClick(carDetails)
         }
+    }
+    private fun changeSimpleDateFormat(checkIn: Long?) : String {
+        val date = SimpleDateFormat(Constants.dateFormat, Locale.getDefault())
+       return date.format(checkIn)
     }
 }
