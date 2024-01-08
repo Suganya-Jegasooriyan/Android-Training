@@ -7,40 +7,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
-class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>(){
-
-    private val carDetailList = mutableListOf<Car>()
-
-    fun addCarDetails(carDetails: Car) {
-        val nax = getNextAvailableSlot()
-        if(nax == -1) {
-            carDetails.slotNumber = carDetailList.size + 1
-        }
-        else {
-            carDetails.slotNumber = nax
-        }
-        val index = carDetails.slotNumber!! - 1
-        carDetailList.add(index, carDetails)
-        notifyDataSetChanged()
-    }
-
-    private fun getNextAvailableSlot(): Int {
-        carDetailList.forEachIndexed { index, car ->
-            if (car.slotNumber != index + 1){
-                return index + 1
-            }
-        }
-        return -1
-    }
-
-    fun removeCar(car: Car) {
-        val index = carDetailList.indexOf(car)
-        carDetailList.removeAt(index)
-        notifyDataSetChanged()
-    }
+class CarParkingAdapter(
+    private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>(){
+    private var carDetailList: MutableList<Car> = mutableListOf()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val tvCarNumber: TextView = view.findViewById(R.id.show_car_number)
@@ -74,5 +45,15 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
     private fun changeSimpleDateFormat(checkIn: Long?) : String {
         val date = SimpleDateFormat(Constants.dateFormat, Locale.getDefault())
        return date.format(checkIn)
+    }
+
+    fun setCarList(carDetailList: MutableList<Car>, index: Int) {
+        this.carDetailList = carDetailList
+        notifyItemInserted(index)
+    }
+
+    fun setRemoveCarList(carDetailList: MutableList<Car>, index: Int) {
+        this.carDetailList = carDetailList
+        notifyItemRemoved(index)
     }
 }
